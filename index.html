@@ -5,33 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="https://kit.fontawesome.com/6f4d20c527.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="src/images/planet.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="style.css" />
     <script type="module" defer src="src/js/controller.js"></script>
 
+
     <title>Countries-App</title>
 </head>
 <body>
     <section>
-        <header>
-            <div>
-                <p>Where in the world?</p>
-            </div>
-            <div>
-                <img src="./src/images/sunicon.png" alt="sun-icon">
-                <p>Dark Mode</p>
-            </div>
-        </header>
+        <div>
+            <h2>Where in the world?</h2>
+        </div>
+        <div>
+            <img src="/src/images/sun-icon.png" alt="sun-icon">
+            <span>Dark Mode</span>
+        </div>
     </section>
     <section>
         <form>
             <button>
-                <img src="src/images/saerch-icon.png" alt="search-icon">
+                <img src="/src/images/search-icon.png" alt="search-icon">
             </button>
             <input type="text"
             placeholder="Search for a country..">
+
+            <select name="regions" id="regions">
+                <option value="" disabled selected hidden>Filter by Region</option>
+                <option value="Africa">Africa</option>
+                <option value="America">America</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+            </select>
         </form>
     </section>
+    <main>
+
+    </main>
 </body>
 </html>
