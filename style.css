@@ -90,3 +90,61 @@ select {
 select:focus {
     outline: none;
 }
+
+.countries {
+    margin-bottom: 8rem;
+    display: flex;
+
+    font-size: 2rem;
+    /* opacity: 0; */
+    transition: opacity 1s;
+}
+  
+.country {
+    background-color: #fff;
+    box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+    font-size: 1.8rem;
+    width: 20rem;
+    border-radius: 0.7rem;
+    margin: 0 3rem;
+    /* overflow: hidden; */
+}
+
+.country__img {
+    width: 20rem;
+    height: 12rem;
+    object-fit: cover;
+    background-color: #eee;
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+  }
+  
+.country__data {
+    padding: 2rem 3rem 2rem 3rem;
+}
+  
+.country__name {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+}
+  
+.country__region {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    color: #888;
+}
+  
+.country__row:not(:last-child) {
+    margin-bottom: 0.2rem;
+}
+
+.country__row {
+    font-size: 1.2rem;
+}
+  
+.country__row span {
+    display: inline-block;
+    margin-right: 2rem;
+    font-size: 1.2rem;
+}
