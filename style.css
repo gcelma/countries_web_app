@@ -99,6 +99,7 @@ select:focus {
     max-width: 1200px;
     flex-wrap: wrap;
     gap: 0.5em;
+    align-items: center;
 
     font-size: 2rem;
     /* opacity: 0; */
@@ -107,7 +108,7 @@ select:focus {
   
 .country {
     background-color: #fff;
-    box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2rem 5rem 1rem rgba(138, 137, 137, 0.1);
     font-size: 1.8rem;
     width: 18rem;
     border-radius: 0.7rem;
