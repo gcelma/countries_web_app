@@ -92,8 +92,13 @@ select:focus {
 }
 
 .countries {
-    margin-bottom: 8rem;
+    width: 90%;
+    padding: 80px 0;
+    margin: 0 auto;
     display: flex;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    gap: 0.5em;
 
     font-size: 2rem;
     /* opacity: 0; */
@@ -106,11 +111,12 @@ select:focus {
     font-size: 1.8rem;
     width: 18rem;
     border-radius: 0.7rem;
-    margin: 0 3rem;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .country__img {
+    min-width: 10rem;
+    flex: 350px;
     width: 18rem;
     height: 10rem;
     object-fit: cover;
