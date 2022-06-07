@@ -104,15 +104,15 @@ select:focus {
     background-color: #fff;
     box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
     font-size: 1.8rem;
-    width: 20rem;
+    width: 18rem;
     border-radius: 0.7rem;
     margin: 0 3rem;
     /* overflow: hidden; */
 }
 
 .country__img {
-    width: 20rem;
-    height: 12rem;
+    width: 18rem;
+    height: 10rem;
     object-fit: cover;
     background-color: #eee;
     border-top-left-radius: 0.7rem;
@@ -120,7 +120,7 @@ select:focus {
   }
   
 .country__data {
-    padding: 2rem 3rem 2rem 3rem;
+    padding: 1rem 3rem 2rem 3rem;
 }
   
 .country__name {
@@ -140,11 +140,11 @@ select:focus {
 }
 
 .country__row {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
   
 .country__row span {
     display: inline-block;
-    margin-right: 2rem;
-    font-size: 1.2rem;
+    margin-right: 1rem;
+    font-size: 1rem;
 }
