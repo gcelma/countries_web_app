@@ -93,12 +93,13 @@ select:focus {
 
 .countries {
     width: 90%;
-    padding: 80px 0;
+    padding: 70px 0;
     margin: 0 auto;
     display: flex;
     max-width: 1200px;
     flex-wrap: wrap;
     gap: 0.5em;
+    justify-content: start;
     align-items: center;
 
     font-size: 2rem;
@@ -108,7 +109,7 @@ select:focus {
   
 .country {
     background-color: #fff;
-    box-shadow: 0 2rem 5rem 1rem rgba(138, 137, 137, 0.1);
+    box-shadow: 0 2rem 5rem 1rem rgba(112, 112, 112, 0.1);
     font-size: 1.8rem;
     width: 18rem;
     border-radius: 0.7rem;
@@ -131,23 +132,23 @@ select:focus {
 }
   
 .country__name {
-    font-size: 1.5rem;
+    font-size: 0.9rem;
     margin-bottom: 0.2rem;
 }
   
 .country__region {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
     color: #888;
 }
   
-.country__row:not(:last-child) {
+/* .country__row:not(:last-child) {
     margin-bottom: 0.2rem;
-}
+} */
 
 .country__row {
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
   
 .country__row span {
