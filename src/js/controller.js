@@ -1,15 +1,17 @@
-// import * as model from "./model.js"
-// import countriesView from "./views/countriesView.js";
+import * as model from "./model.js"
+import countriesView from "./views/countriesView.js";
 
-// const controlCountries = async function() {
-//     try {
-//         countriesView.render(model.countries)
-//     } catch (err) {
-//         console.error(err);
-//     }
-// };
+const controlCountries = async function() {
+    try {
+        await model.createCountriesObject('all');
 
-// const init = function() {
-//     countriesView.addHandlerRender(controlCountries);
-// }
-// init();
+        model.state.countries.countries.forEach(cty => countriesView.render(cty));
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+const init = function() {
+    countriesView.addHandlerRender(controlCountries);
+}
+init();
