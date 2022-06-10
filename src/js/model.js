@@ -8,7 +8,7 @@ export const state = {
     },
 }
 
-export const createCountriesObject = async function(region) {
+export const createCountriesObject = async function(region = 'all') {
     try {
         state.region = region;
 
@@ -27,3 +27,4 @@ export const createCountriesObject = async function(region) {
         console.error(err);
     }
 };
+

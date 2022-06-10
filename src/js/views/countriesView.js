@@ -4,7 +4,7 @@ class CountriesView {
     _data;
 
     addHandlerRender(handler) {
-        ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
+        ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler()));
     };
 
     render(data) {
