@@ -4,9 +4,9 @@ import regionView from "./views/regionView.js";
 
 const controlCountries = async function() {
     try {
-        await model.createCountriesObject();
+        await model.loadAllCountries();
 
-        model.state.countries.countries.forEach(cty => countriesView.render(cty));
+        model.state.countries.allCountries.forEach(cty => countriesView.render(cty));
     } catch (err) {
         console.error(err);
     }

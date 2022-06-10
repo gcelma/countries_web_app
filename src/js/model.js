@@ -4,27 +4,35 @@ import { AJAX } from "./helper.js";
 export const state = {
     countries : {
         region : '',
-        countries : [],
+        allCountries : [],
+        europe : [],
+        americas : [],
+        africa : [],
+        oceania : [],
+        asia : [],
     },
 }
 
-export const createCountriesObject = async function(region = 'all') {
+const countryObject = function(cty) {
+    return  {
+        name : cty.name.common,
+        flag : cty.flags.png,
+        region : cty.region,
+        population : cty.population,
+        capital : cty.capital,
+    }
+}
+
+export const loadAllCountries = async function(region = 'all') {
     try {
         state.region = region;
 
         const data = await AJAX(`${API_URL}${region}`);
 
-        state.countries.countries = data.map(cty => {
-            return {
-                name : cty.name.common,
-                flag : cty.flags.png,
-                region : cty.region,
-                population : cty.population,
-                capital : cty.capital,
-            }
+        state.countries.allCountries = data.map(cty => {
+            return countryObject(cty)
         })
     } catch (err) {
-        console.error(err);
+        throw err;
     }
 };
-
