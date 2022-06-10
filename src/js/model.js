@@ -1,7 +1,5 @@
 import { AJAX } from "./helper.js";
 
-const parenElement = document.querySelector('.countries');
-
 export const state = {
     countries : {
         region : '',
@@ -28,22 +26,3 @@ export const createCountriesObject = async function(region) {
         console.error(err);
     }
 };
-
-// await createCountriesObject('all');
-
-// const renderCountry = function(country) {
-//     const markup = `
-//     <article class="country">
-//     <img class="country__img" src="${country.flag}" />
-//     <div class="country__data">
-//       <h3 class="country__name">${country.name}</h3>
-//       <h4 class="country__region">${country.region}</h4>
-//       <p class="country__row"><span>👫</span>${country.population}</p>
-//       <p class="country__row"><span>🏙</span>${country.capital}</p> 
-//     </div>
-//     </article>`
-
-//     parenElement.insertAdjacentHTML('beforeend', markup);
-// };
-
-// state.countries.forEach(cty => renderCountry(cty));

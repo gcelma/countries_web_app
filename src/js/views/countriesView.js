@@ -11,8 +11,13 @@ class CountriesView {
         if(!data || (Array.isArray(data) && data.length === 0)) return 'Error';
         
         this._data = data;
+        const markup = this._generateMarkup();
 
-        const markup = `
+        this._parentElement.insertAdjacentHTML("beforeend", markup);
+    }
+
+    _generateMarkup() {
+        return `
         <article class="country">
             <img class="country__img" src=${this._data.flag} />
             <div class="country__data">
@@ -22,8 +27,6 @@ class CountriesView {
               <p class="country__row"><span>🏙</span>${this._data.capital}</p> 
             </div>
         </article>`;
-
-        this._parentElement.insertAdjacentHTML("beforeend", markup);
     }
 }
 

@@ -80,6 +80,7 @@ body {
 }
 
 select {
+    width: 15rem;
     height: 3em;
     background-color: var(--white);
     padding: 0.5em;
@@ -142,10 +143,6 @@ select:focus {
     text-transform: uppercase;
     color: #888;
 }
-  
-/* .country__row:not(:last-child) {
-    margin-bottom: 0.2rem;
-} */
 
 .country__row {
     font-size: 0.8rem;
