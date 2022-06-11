@@ -6,6 +6,10 @@ export const state = {
         region : '',
         allCountries : [],
         countriesByRegion : [],
+        results : {
+            query : '',
+            countryResult : [],
+        }
     },
 }
 
@@ -42,8 +46,23 @@ export const loadCountryByRegion = async function(region) {
         state.countries.countriesByRegion = data.map(cty => {
             return countryObject(cty)
         });
-
+        console.log(state);
     } catch (err) {
         throw err;
     }
 };
+
+export const loadCountryByName = async function(name) {
+    try {
+        state.countries.results.query = name;
+
+        const data = await AJAX(`${API_URL_COUNTRYBYNAME}${state.countries.results.query}`);
+
+        state.countries.results.countryResult = data.map(cty => {
+            return countryObject(cty);
+        });
+        console.log(state);
+    } catch (err) {
+        throw err;
+    }
+}
