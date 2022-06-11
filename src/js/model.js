@@ -5,11 +5,7 @@ export const state = {
     countries : {
         region : '',
         allCountries : [],
-        europe : [],
-        americas : [],
-        africa : [],
-        oceania : [],
-        asia : [],
+        countriesByRegion : [],
     },
 }
 
@@ -25,13 +21,28 @@ const countryObject = function(cty) {
 
 export const loadAllCountries = async function(region = 'all') {
     try {
-        state.region = region;
+        state.countries.region = region;
 
-        const data = await AJAX(`${API_URL}${region}`);
+        const data = await AJAX(`${API_URL}${state.countries.region}`);
 
         state.countries.allCountries = data.map(cty => {
             return countryObject(cty)
         })
+    } catch (err) {
+        throw err;
+    }
+};
+
+export const loadCountryByRegion = async function(region) {
+    try {
+        state.countries.region = `${region}`;
+
+        const data = await AJAX(`${API_URL}region/${state.countries.region}`);
+
+        state.countries.countriesByRegion = data.map(cty => {
+            return countryObject(cty)
+        });
+
     } catch (err) {
         throw err;
     }

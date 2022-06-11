@@ -12,9 +12,9 @@ const controlCountries = async function() {
     }
 };
 
-const controlRegionCountries = async function() {
+const controlRegionCountries = async function(region) {
     try {
-        regionView.getRegionValue();
+        await model.loadCountryByRegion(region);
     } catch (err) {
         console.error(err);
     }
@@ -22,6 +22,6 @@ const controlRegionCountries = async function() {
 
 const init = function() {
     countriesView.addHandlerRender(controlCountries);
-    controlRegionCountries();
+    regionView.getRegionValue(controlRegionCountries);
 }
 init();

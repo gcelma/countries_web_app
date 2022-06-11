@@ -2,9 +2,10 @@ class regionView {
     _parentElement = document.querySelector('.regions');
     _data;
 
-    getRegionValue() {
+    getRegionValue(handler) {
         this._parentElement.addEventListener('change', (e) => {
-            console.log(e.target.value);
+            const region = e.target.value;
+            handler(region);
         })
     }
 };
