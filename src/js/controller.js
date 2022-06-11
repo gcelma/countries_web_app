@@ -14,9 +14,14 @@ const controlCountries = async function() {
 
 const controlRegionCountries = async function(region) {
     try {
-        await model.loadCountryByRegion(region);
-        regionView.clear();
-        model.state.countries.countriesByRegion.forEach(cty => regionView.render(cty));
+        if(region === 'All') {
+            regionView.clear();
+            controlCountries();
+        } else {
+            await model.loadCountryByRegion(region);
+            regionView.clear();
+            model.state.countries.countriesByRegion.forEach(cty => regionView.render(cty));
+        }
     } catch (err) {
         console.error(err);
     }

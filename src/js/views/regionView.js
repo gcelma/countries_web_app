@@ -14,7 +14,6 @@ class regionView {
         if(!data || (Array.isArray(data) && data.length === 0)) return 'Error';
         
         this._data = data;
-        console.log(data);
         const markup = this._generateMarkup();
 
         this._parentElement.insertAdjacentHTML("beforeend", markup);
