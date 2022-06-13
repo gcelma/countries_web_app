@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap');
 
+/* -------------- GENERAL STYLE -------------*/
+
 :root {
     --dark-blue : hsl(209, 23%, 22%);
     --very-dark-blue: hsl(207, 26%, 17%);
@@ -30,6 +32,8 @@ body {
     width: 1.1em;
 }
 
+/* -------------- HEADER STYLE -------------*/
+
 .title-container {
     padding: 1rem 3rem;
     display: flex;
@@ -46,6 +50,8 @@ body {
     justify-content: space-around;
     cursor: pointer;
 }
+
+/* -------------- SEARCH -/- FILTER STYLE -------------*/
 
 .search--filter--container {
     margin-top: 2em;
@@ -92,6 +98,8 @@ select:focus {
     outline: none;
 }
 
+/* -------------- COUNTRIES STYLE -------------*/
+
 .countries {
     width: 90%;
     padding: 70px 0;
@@ -100,7 +108,7 @@ select:focus {
     max-width: 1200px;
     flex-wrap: wrap;
     gap: 0.5em;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
 
     font-size: 2rem;
@@ -153,6 +161,8 @@ select:focus {
     margin-right: 1rem;
     font-size: 1rem;
 }
+
+/* -------------- ERROR-MESSAGE STYLE -------------*/
 
 .error {
     max-width: 40rem;
