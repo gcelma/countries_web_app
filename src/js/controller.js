@@ -3,11 +3,15 @@ import countriesView from "./views/countriesView.js";
 import regionView from "./views/regionView.js";
 import searchView from "./views/searchView.js";
 
+const controlRender = function(arr) {
+    arr.forEach(cty => countriesView.render(cty));
+};
+
 const controlCountries = async function() {
     try {
         await model.loadAllCountries();
 
-        model.state.countries.allCountries.forEach(cty => countriesView.render(cty));
+        controlRender(model.state.countries.allCountries);
     } catch (err) {
         console.error(err);
     }
@@ -21,7 +25,7 @@ const controlRegionCountries = async function(region) {
         } else {
             await model.loadCountryByRegion(region);
             regionView.clear();
-            model.state.countries.countriesByRegion.forEach(cty => regionView.render(cty));
+            controlRender(model.state.countries.countriesByRegion);
         }
     } catch (err) {
         console.error(err);
@@ -35,7 +39,7 @@ const controlSearchCountry = async function() {
 
         await model.loadCountryByName(query);
         regionView.clear();
-        model.state.countries.results.countryResult.forEach(cty => searchView.render(cty));
+        controlRender(model.state.countries.results.countryResult);
     } catch (err) {
         console.error(err);
     }
