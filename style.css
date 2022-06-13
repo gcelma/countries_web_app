@@ -15,7 +15,6 @@
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-    /* border: 1px solid black; */
 }
   
 html {
@@ -29,26 +28,43 @@ body {
 }
 
 .icons {
-    width: 1.1em;
+    width: 1.3em;
 }
 
 /* -------------- HEADER STYLE -------------*/
 
 .title-container {
-    padding: 1rem 3rem;
+    max-width: 1441px;
+    margin: auto;
+    padding: 0.5rem 3rem;
     display: flex;
     flex-flow: row;
     justify-content: space-between;
     box-shadow: 1px 1px 2px 2px rgb(186, 184, 184);
+}
 
+.title {
+    display: flex;
+    align-items: center;
 }
 
 .theme-container {
-    width: 7rem;
+    width: 9rem;
     padding: 0.3em;
     display: flex;
     justify-content: space-around;
     cursor: pointer;
+}
+
+@media (max-width: 470px) {
+    .title-container {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .theme-container {
+        margin-top: 0.5rem;
+    }
 }
 
 /* -------------- SEARCH -/- FILTER STYLE -------------*/
@@ -98,6 +114,38 @@ select:focus {
     outline: none;
 }
 
+@media (min-width : 1441px) {
+    .search--filter--container {
+        max-width: 1441px;
+        margin: auto;
+    }
+}
+
+@media(max-width : 769px) {
+    .form-container input {
+        width: 15rem;
+    }
+
+    select {
+        width: 11rem;
+    }
+}
+
+@media (max-width : 627px) {
+    .search--filter--container {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .form-container {
+        height: 3rem;
+    }
+    
+    select {
+        margin-top: 2rem;
+    }
+}
+
 /* -------------- COUNTRIES STYLE -------------*/
 
 .countries {
@@ -112,7 +160,6 @@ select:focus {
     align-items: center;
 
     font-size: 2rem;
-    /* opacity: 0; */
     transition: opacity 1s;
 }
   
@@ -160,6 +207,12 @@ select:focus {
     display: inline-block;
     margin-right: 1rem;
     font-size: 1rem;
+}
+
+@media (max-width : 626px) {
+    .countries {
+        padding: 20px 0;
+    }
 }
 
 /* -------------- ERROR-MESSAGE STYLE -------------*/
