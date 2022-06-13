@@ -20,11 +20,11 @@ const controlCountries = async function() {
 const controlRegionCountries = async function(region) {
     try {
         if(region === 'All') {
-            regionView.clear();
+            countriesView.clear();
             controlCountries();
         } else {
             await model.loadCountryByRegion(region);
-            regionView.clear();
+            countriesView.clear();
             controlRender(model.state.countries.countriesByRegion);
         }
     } catch (err) {
@@ -38,10 +38,10 @@ const controlSearchCountry = async function() {
         if(!query) return
 
         await model.loadCountryByName(query);
-        regionView.clear();
+        countriesView.clear();
         controlRender(model.state.countries.results.countryResult);
     } catch (err) {
-        console.error(err);
+        searchView.renderError();
     }
 }
 
