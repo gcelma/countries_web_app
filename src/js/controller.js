@@ -13,7 +13,7 @@ const controlCountries = async function() {
 
         controlRender(model.state.countries.allCountries);
     } catch (err) {
-        console.error(err);
+        countriesView.renderError()
     }
 };
 
@@ -28,7 +28,7 @@ const controlRegionCountries = async function(region) {
             controlRender(model.state.countries.countriesByRegion);
         }
     } catch (err) {
-        console.error(err);
+        regionView.renderError()
     }
 };
 
