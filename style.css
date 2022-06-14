@@ -170,6 +170,7 @@ select:focus {
     width: 18rem;
     border-radius: 0.7rem;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .country__img {

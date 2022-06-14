@@ -22,8 +22,8 @@ export default class View {
             <div class="country__data">
               <h3 class="country__name">${this._data.name}</h3>
               <h4 class="country__region">${this._data.region}</h4>
-              <p class="country__row"><span>👫</span>${this._data.population}</p>
-              <p class="country__row"><span>🏙</span>${this._data.capital}</p> 
+              <p class="country__row"><span>👫</span>population: ${(this._data.population / 1000000).toFixed(1)} M</p>
+              <p class="country__row"><span>🏙</span>capital: ${this._data.capital}</p> 
             </div>
         </article>`;
     }
@@ -35,5 +35,16 @@ export default class View {
         </div>`
         this.clear();
         this._parentElement.insertAdjacentHTML('beforeend', markup);
-      };
+    };
+
+    addHandlerCountry(handler) {
+      this._parentElement.addEventListener('click', function(e) {
+        const cty = e.target.closest('.country').innerHTML;
+        if(!cty) return;
+
+        const newDom = document.createRange().createContextualFragment(cty);
+        const countryName = newDom.querySelector('.country__name').innerHTML;
+        handler(countryName);
+      })
+    }
 };

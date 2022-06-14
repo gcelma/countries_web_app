@@ -45,9 +45,14 @@ const controlSearchCountry = async function() {
     }
 }
 
+const controlInfoCountry = function(cty) {
+    console.log(cty);
+};
+
 const init = function() {
     countriesView.addHandlerRender(controlCountries);
     regionView.getRegionValue(controlRegionCountries);
-    searchView.addHandlerSearch(controlSearchCountry)
+    searchView.addHandlerSearch(controlSearchCountry);
+    countriesView.addHandlerCountry(controlInfoCountry);
 }
 init();
