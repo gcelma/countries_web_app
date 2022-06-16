@@ -1,10 +1,15 @@
 import * as model from "./model.js"
 import countriesView from "./views/countriesView.js";
+import countryInfoView from "./views/countryInfoView.js";
 import regionView from "./views/regionView.js";
 import searchView from "./views/searchView.js";
 
 const controlRender = function(arr) {
     arr.forEach(cty => countriesView.render(cty));
+};
+
+const renderInfoCountry = function(arr) {
+    arr.forEach(cty => countryInfoView.renderInfoCountry(cty))
 };
 
 const controlCountries = async function() {
@@ -48,10 +53,9 @@ const controlSearchCountry = async function() {
 const controlInfoCountry = async function(cty) {
    try {
         if(!cty) return
-        
-        await model.loadCountryByClick(cty);
-        countriesView.clear();
-        controlRender(model.state.countries.infoCountry);
+
+        await model.loadInfoCountryByClick(cty);
+        renderInfoCountry(model.state.countries.infoCountry);
    } catch (err) {
         console.error(err);
    }

@@ -60,7 +60,7 @@ export const loadCountryByName = async function(name) {
     }
 };
 
-export const loadCountryByClick = async function(cty) {
+export const loadInfoCountryByClick = async function(cty) {
     try {
         const data = await AJAX(`${API_URL_COUNTRYBYNAME}${cty}`);
         state.countries.infoCountry =  dataCountry(data);
