@@ -45,8 +45,16 @@ const controlSearchCountry = async function() {
     }
 }
 
-const controlInfoCountry = function(cty) {
-    console.log(cty);
+const controlInfoCountry = async function(cty) {
+   try {
+        if(!cty) return
+        
+        await model.loadCountryByClick(cty);
+        countriesView.clear();
+        controlRender(model.state.countries.infoCountry);
+   } catch (err) {
+        console.error(err);
+   }
 };
 
 const init = function() {

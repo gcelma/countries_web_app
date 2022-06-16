@@ -9,7 +9,8 @@ export const state = {
         results : {
             query : '',
             countryResult : [],
-        }
+        },
+        infoCountry : [],
     },
 }
 
@@ -54,6 +55,15 @@ export const loadCountryByName = async function(name) {
         state.countries.results.query = name;
         const data = await AJAX(`${API_URL_COUNTRYBYNAME}${state.countries.results.query}`);
         state.countries.results.countryResult = dataCountry(data);
+    } catch (err) {
+        throw err;
+    }
+};
+
+export const loadCountryByClick = async function(cty) {
+    try {
+        const data = await AJAX(`${API_URL_COUNTRYBYNAME}${cty}`);
+        state.countries.infoCountry =  dataCountry(data);
     } catch (err) {
         throw err;
     }
