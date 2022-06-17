@@ -238,13 +238,16 @@ select:focus {
   
 .close-modal {
     position: absolute;
-    top: 1.2rem;
-    right: 2rem;
+    top: 25%;
+    right: 36%;
+
     font-size: 5rem;
     color: var(--white);
     cursor: pointer;
     border: none;
     background: none;
+    
+    z-index: 11;
 }
 
 .hidden {
