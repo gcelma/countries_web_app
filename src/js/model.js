@@ -21,6 +21,8 @@ const countryObject = function(cty) {
         region : cty.region,
         population : cty.population,
         capital : cty.capital,
+        language : cty.languages,
+        currenci : cty.currencies,
     }
 };
 
@@ -68,3 +70,5 @@ export const loadInfoCountryByClick = async function(cty) {
         throw err;
     }
 };
+
+console.log(state);

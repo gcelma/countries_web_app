@@ -182,7 +182,11 @@ select:focus {
     background-color: #eee;
     border-top-left-radius: 0.7rem;
     border-top-right-radius: 0.7rem;
-  }
+}
+
+.info {
+    height: 12rem;
+}
   
 .country__data {
     padding: 1rem 3rem 2rem 3rem;
@@ -246,7 +250,7 @@ select:focus {
     cursor: pointer;
     border: none;
     background: none;
-    
+
     z-index: 11;
 }
 
