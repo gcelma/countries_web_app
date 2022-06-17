@@ -21,12 +21,12 @@ class countryInfoView extends View {
         })
     }
 
-    _clear() {
+    _cleanModal() {
         this._modal.innerHTML = '';
     }
 
     renderInfoCountry(data) {
-        this._clear()
+        this._cleanModal();
         if(!data || (Array.isArray(data) && data.length === 0)) return 'Error';
 
         this._data = data;
