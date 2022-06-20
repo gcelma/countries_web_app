@@ -36,18 +36,35 @@ class countryInfoView extends View {
         this._closeModal(this._modal, this._overlay, this._parentElement, this._btnCloseModal);
     }
 
+    _gettingInfo(object) {
+        if (object) {
+          return Object.values(object)
+          .map(e => e.name ? e.name : e).join(',  ')
+        } else {
+          return 'none'
+        }
+    }
+
+    _gettingBorders(borders) {
+        if (borders) {
+            return borders.map(b => `<a href="#">${b}</a>`)
+        } else {
+            return 'none'
+        }
+    }
+
     _generateMarkupInfoCountry() {
         return `
-        <article class="country">
-            <img class="country__img info" src=${this._data.flag} />
+        <article class="country__info">
+            <img class="country__img__info" src=${this._data.flag} />
             <div class="country__data">
               <h3 class="country__name">${this._data.name}</h3>
               <h4 class="country__region">${this._data.region}</h4>
               <p class="country__row"><span>🧍</span>population: ${(this._data.population / 1000000).toFixed(1)} M</p>
               <p class="country__row"><span>🏙</span>capital: ${this._data.capital}</p>
-              <p class="country__row"><span>💰</span>currenci: ${this.gettingInfo(this._data.currenci)}</p>
-              <p class="country__row"><span>🗣️</span>language: ${this.gettingInfo(this._data.language)}</p>
-              <p class="country__row"><span>👫</span>borders: ${this.gettingInfo(this._data.neighbors)}</p>
+              <p class="country__row"><span>💰</span>currenci: ${this._gettingInfo(this._data.currenci)}</p>
+              <p class="country__row"><span>🗣️</span>language: ${this._gettingInfo(this._data.language)}</p>
+              <p class="country__row"><span>👫</span>borders:${this._gettingBorders(this._data.neighbors)}</p>
             </div>
         </article>`;
       }

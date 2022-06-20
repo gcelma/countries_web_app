@@ -14,11 +14,6 @@ export default class View {
       this._parentElement.innerHTML = '';
     }
 
-    gettingInfo(object) {
-      return Object.values(object)
-        .map(e => e.name ? e.name : e).join(', ')
-    }
-
     _generateMarkup() {
       return `
       <article class="country">

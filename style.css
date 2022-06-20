@@ -220,6 +220,29 @@ select:focus {
     }
 }
 
+/*--------------- COUNTRY-INFO STYLE --------------*/
+
+.country__info {
+    background-color: #fff;
+    box-shadow: 0 2rem 5rem 1rem rgba(112, 112, 112, 0.1);
+    font-size: 1.8rem;
+    width: 29rem;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.country__img__info {
+    min-width: 10rem;
+    flex: 350px;
+    width: 29rem;
+    height: 15rem;
+    object-fit: fill;
+    background-color: #eee;
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+}
+
 /* -------------- ERROR-MESSAGE STYLE -------------*/
 
 .error {
