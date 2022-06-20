@@ -242,10 +242,10 @@ select:focus {
   
 .close-modal {
     position: absolute;
-    top: 25%;
-    right: 36%;
+    top: 8%;
+    right: 38%;
 
-    font-size: 5rem;
+    font-size: 2rem;
     color: var(--white);
     cursor: pointer;
     border: none;

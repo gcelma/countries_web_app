@@ -23,6 +23,7 @@ const countryObject = function(cty) {
         capital : cty.capital,
         language : cty.languages,
         currenci : cty.currencies,
+        neighbors : cty.borders,
     }
 };
 
@@ -64,11 +65,9 @@ export const loadCountryByName = async function(name) {
 
 export const loadInfoCountryByClick = async function(cty) {
     try {
-        const data = await AJAX(`${API_URL_COUNTRYBYNAME}${cty}`);
+        const data = await AJAX(`${API_URL_COUNTRYBYNAME}${cty}?fullText=true`);
         state.countries.infoCountry =  dataCountry(data);
     } catch (err) {
         throw err;
     }
 };
-
-console.log(state);

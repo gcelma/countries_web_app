@@ -55,6 +55,7 @@ const controlInfoCountry = async function(cty) {
         if(!cty) return
 
         await model.loadInfoCountryByClick(cty);
+        console.log(model.state);
         renderInfoCountry(model.state.countries.infoCountry);
    } catch (err) {
         console.error(err);
