@@ -56,6 +56,14 @@ const controlInfoCountry = async function(cty) {
 
         await model.loadInfoCountryByClick(cty);
         renderInfoCountry(model.state.countries.infoCountry);
+        
+        countryInfoView.gettingBorders()
+            .forEach(border => {
+                border.addEventListener('click', async e => {
+                    await model.loadBorderCountryByClick(e.target.innerHTML);
+                    renderInfoCountry(model.state.countries.infoCountry);
+                })
+            })
    } catch (err) {
         console.error(err);
    }

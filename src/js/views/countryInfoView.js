@@ -39,7 +39,7 @@ class countryInfoView extends View {
     _gettingInfo(object) {
         if (object) {
           return Object.values(object)
-          .map(e => e.name ? e.name : e).join(',  ')
+          .map(e => e.name ? e.name : e).join(', ')
         } else {
           return 'none'
         }
@@ -47,10 +47,15 @@ class countryInfoView extends View {
 
     _gettingBorders(borders) {
         if (borders) {
-            return borders.map(b => `<a href="#">${b}</a>`)
+            return borders.map(b => `<a class="country__row__border">${b}</a>`).join('')
         } else {
             return 'none'
         }
+    }
+
+    gettingBorders() {
+        const borders = document.querySelectorAll('.country__row__border');
+        return borders;
     }
 
     _generateMarkupInfoCountry() {
@@ -67,7 +72,7 @@ class countryInfoView extends View {
               <p class="country__row"><span>👫</span>borders:${this._gettingBorders(this._data.neighbors)}</p>
             </div>
         </article>`;
-      }
+    }
 }
 
 export default new countryInfoView();  

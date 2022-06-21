@@ -1,4 +1,4 @@
-import { API_URL_ALLCOUNTRIES, API_URL_COUNTRIESBYREGION, API_URL_COUNTRYBYNAME } from "./config.js";
+import { API_URL_ALLCOUNTRIES, API_URL_COUNTRIESBYREGION, API_URL_COUNTRYBYBORDER, API_URL_COUNTRYBYNAME } from "./config.js";
 import { AJAX } from "./helper.js";
 
 export const state = {
@@ -11,6 +11,7 @@ export const state = {
             countryResult : [],
         },
         infoCountry : [],
+        borders : [],
     },
 }
 
@@ -66,6 +67,15 @@ export const loadCountryByName = async function(name) {
 export const loadInfoCountryByClick = async function(cty) {
     try {
         const data = await AJAX(`${API_URL_COUNTRYBYNAME}${cty}?fullText=true`);
+        state.countries.infoCountry =  dataCountry(data);
+    } catch (err) {
+        throw err;
+    }
+};
+
+export const loadBorderCountryByClick = async function(border) {
+    try {
+        const data = await AJAX(`${API_URL_COUNTRYBYBORDER}${border}`);
         state.countries.infoCountry =  dataCountry(data);
     } catch (err) {
         throw err;
