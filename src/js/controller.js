@@ -1,6 +1,7 @@
 import * as model from "./model.js"
 import countriesView from "./views/countriesView.js";
 import countryInfoView from "./views/countryInfoView.js";
+import darkView from "./views/darkView.js";
 import regionView from "./views/regionView.js";
 import searchView from "./views/searchView.js";
 
@@ -74,5 +75,6 @@ const init = function() {
     regionView.getRegionValue(controlRegionCountries);
     searchView.addHandlerSearch(controlSearchCountry);
     countriesView.addHandlerCountry(controlInfoCountry);
+    darkView.changingTheme();
 }
 init();

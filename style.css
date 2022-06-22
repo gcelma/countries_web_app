@@ -3,7 +3,7 @@
 /* -------------- GENERAL STYLE -------------*/
 
 :root {
-    --dark-blue : hsl(209, 23%, 22%);
+    --dark-blue : hsl(209, 25%, 22%);
     --very-dark-blue: hsl(207, 26%, 17%);
     --very-dark-blue-light-mode: hsl(200, 15%, 8%);
     --dark-gray: hsl(0, 0%, 52%);
@@ -308,4 +308,15 @@ select:focus {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
     z-index: 5;
-} 
+}
+
+/*--------------- DARK MODE ---------------------*/
+
+.body__dark {
+    background-color: var(--very-dark-blue);
+}
+
+.dark__theme {
+    color: var(--white);
+    background-color: var(--dark-blue);
+}
