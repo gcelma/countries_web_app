@@ -4,7 +4,7 @@
 
 :root {
     --dark-blue : hsl(209, 25%, 22%);
-    --very-dark-blue: hsl(207, 26%, 17%);
+    --very-dark-blue: hsl(208, 27%, 14%);
     --very-dark-blue-light-mode: hsl(200, 15%, 8%);
     --dark-gray: hsl(0, 0%, 52%);
     --very-light-gray: hsl(0, 0%, 98%);
@@ -319,4 +319,8 @@ select:focus {
 .dark__theme {
     color: var(--white);
     background-color: var(--dark-blue);
+}
+
+.no-box-shadow {
+    box-shadow: none;
 }

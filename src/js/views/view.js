@@ -1,4 +1,5 @@
 export default class View {
+    _body = document.querySelector('body');
     _parentElement = document.querySelector('.countries');
     _data;
 
@@ -34,7 +35,7 @@ export default class View {
       </div>`
       this.clear();
       this._parentElement.insertAdjacentHTML('beforeend', markup);
-    };
+    }
 
     addHandlerCountry(handler) {
       this._parentElement.addEventListener('click', function(e) {
@@ -45,5 +46,10 @@ export default class View {
         const countryName = newDom.querySelector('.country__name').innerHTML;
         handler(countryName);
       })
+    }
+
+    _darkThemeCountry() {
+      const countries = document.querySelectorAll('.country');
+      countries.forEach(country => country.classList.toggle('dark__theme'));
     }
 };
