@@ -45,15 +45,16 @@ class countryInfoView extends View {
         }
     }
 
-    _gettingBorders(borders) {
-        if (borders) {
-            return borders.map(b => `<a class="country__row__border">${b}</a>`).join('')
-        } else {
-            return 'none'
-        }
-    }
+    // renderBorders(borders) {
+    //     if (borders) {
+    //         return borders.map(b => `<a class="country__row__border">${b}</a>`).join('')
+    //     } else {
+    //         return 'none'
+    //     }
+    // }
 
     _generateMarkupInfoCountry() {
+        const borders = this._data.neighbors.map(b => `<a class="country__row__border">${b}</a>`).join('');
         return `
         <article class="country__info">
             <img class="country__img__info" src=${this._data.flag} />
@@ -64,7 +65,7 @@ class countryInfoView extends View {
               <p class="country__row"><span>🏙</span>capital: ${this._data.capital}</p>
               <p class="country__row"><span>💰</span>currenci: ${this._gettingInfo(this._data.currenci)}</p>
               <p class="country__row"><span>🗣️</span>language: ${this._gettingInfo(this._data.language)}</p>
-              <p class="country__row"><span>👫</span>borders:${this._gettingBorders(this._data.neighbors)}</p>
+              <p class="country__row"><span>👫</span>borders:${borders}</p>
             </div>
         </article>`;
     }

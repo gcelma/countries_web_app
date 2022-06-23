@@ -54,7 +54,7 @@ const controlSearchCountry = async function() {
         if(!query) return
         const countryName = query.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
     
-        countriesView.clear();
+        searchView.clear();
         controlRender(model.state.countries.filter(cty => cty.name === countryName));
     } catch (err) {
         searchView.renderError();
@@ -64,6 +64,12 @@ const controlSearchCountry = async function() {
 const controlInfoCountry = async function(name) {
    try {
         renderInfoCountry(model.state.countries.filter(cty => cty.name === name));
+        const neighbors = document.querySelectorAll('.country__row__border');
+        neighbors.forEach(n => {
+            n.addEventListener('click', e => {
+                renderInfoCountry(model.state.countries.filter(cty => cty.countryCode === e.target.innerHTML))
+            })
+        })
    } catch (err) {
         console.error(err);
    }
