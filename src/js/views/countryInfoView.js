@@ -53,11 +53,6 @@ class countryInfoView extends View {
         }
     }
 
-    gettingBorders() {
-        const borders = document.querySelectorAll('.country__row__border');
-        return borders;
-    }
-
     _generateMarkupInfoCountry() {
         return `
         <article class="country__info">

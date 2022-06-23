@@ -16,8 +16,7 @@ const renderInfoCountry = function(arr) {
 const controlCountries = async function() {
     try {
         await model.loadAllCountries();
-
-        controlRender(model.state.countries.allCountries);
+        controlRender(model.state.countries);
     } catch (err) {
         countriesView.renderError()
     }
@@ -27,11 +26,22 @@ const controlRegionCountries = async function(region) {
     try {
         if(region === 'All') {
             countriesView.clear();
-            controlCountries();
-        } else {
-            await model.loadCountryByRegion(region);
+            controlRender(model.state.countries);
+        } else if(region === 'Africa') {
             countriesView.clear();
-            controlRender(model.state.countries.countriesByRegion);
+            controlRender(model.state.countries.filter(cty => cty.region === region));
+        } else if (region === 'Americas') {
+            countriesView.clear();
+            controlRender(model.state.countries.filter(cty => cty.region === region));
+        } else if (region === 'Asia') {
+            countriesView.clear();
+            controlRender(model.state.countries.filter(cty => cty.region === region));
+        } else if (region === 'Europe') {
+            countriesView.clear();
+            controlRender(model.state.countries.filter(cty => cty.region === region));
+        } else if (region === 'Oceania') {
+            countriesView.clear();
+            controlRender(model.state.countries.filter(cty => cty.region === region));
         }
     } catch (err) {
         regionView.renderError()
@@ -42,29 +52,18 @@ const controlSearchCountry = async function() {
     try {
         const query = searchView.getQuery();
         if(!query) return
-
-        await model.loadCountryByName(query);
+        const countryName = query.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+    
         countriesView.clear();
-        controlRender(model.state.countries.results.countryResult);
+        controlRender(model.state.countries.filter(cty => cty.name === countryName));
     } catch (err) {
         searchView.renderError();
     }
 }
 
-const controlInfoCountry = async function(cty) {
+const controlInfoCountry = async function(name) {
    try {
-        if(!cty) return
-
-        await model.loadInfoCountryByClick(cty);
-        renderInfoCountry(model.state.countries.infoCountry);
-        
-        countryInfoView.gettingBorders()
-            .forEach(border => {
-                border.addEventListener('click', async e => {
-                    await model.loadBorderCountryByClick(e.target.innerHTML);
-                    renderInfoCountry(model.state.countries.infoCountry);
-                })
-            })
+        renderInfoCountry(model.state.countries.filter(cty => cty.name === name));
    } catch (err) {
         console.error(err);
    }
