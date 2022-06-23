@@ -1,4 +1,4 @@
-import { API_URL_ALLCOUNTRIES, API_URL_COUNTRIESBYREGION, API_URL_COUNTRYBYBORDER, API_URL_COUNTRYBYNAME } from "./config.js";
+import { API_URL_ALLCOUNTRIES} from "./config.js";
 import { AJAX } from "./helper.js";
 
 export const state = {
