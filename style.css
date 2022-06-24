@@ -252,19 +252,24 @@ select:focus {
 /* -------------- ERROR-MESSAGE STYLE -------------*/
 
 .error {
-    max-width: 40rem;
+    max-width: 20rem;
     margin: 0 auto;
-    padding: 4rem 3rem;
+    padding: 0 3rem;
 
-    display: flex;
+    display: block;
     text-align: center;
 }
 
 .error p {
     margin-left: 1.5rem;
-    font-size: 1.8rem;
+    font-size: 1rem;
     line-height: 1.5;
     font-weight: 600;
+}
+
+.error img {
+    width: 12rem;
+    height: 12rem;
 }
 
 /* --------- CLASSES TO MAKE MODAL WORK ----------*/

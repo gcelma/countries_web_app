@@ -31,20 +31,21 @@ export default class View {
     renderError(message = this._errorMessage) {
       const markup = `
       <div class="error">
+        <img src="./src/images/errorimage.png" alt="error image"></img>
         <p>${message}!</p>
       </div>`
       this.clear();
       this._parentElement.insertAdjacentHTML('beforeend', markup);
     }
 
-    addHandlerCountry(handler1) {
+    addHandlerCountry(handler) {
       this._parentElement.addEventListener('click', function(e) {
         const cty = e.target.closest('.country').innerHTML;
         if(!cty) return;
 
         const newDom = document.createRange().createContextualFragment(cty);
         const countryName = newDom.querySelector('.country__name').innerHTML;
-        handler1(countryName);
+        handler(countryName);
       })
     }
 
