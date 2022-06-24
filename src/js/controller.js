@@ -55,7 +55,12 @@ const controlSearchCountry = function() {
         const countryName = query.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
     
         searchView.clear();
-        controlRender(model.state.countries.filter(cty => cty.name === countryName));
+        const itExist = model.state.countries.some(cty => cty.name === countryName);
+        if (itExist) {
+            controlRender(model.state.countries.filter(cty => cty.name === countryName));
+        } else {
+            searchView.renderError();
+        }
     } catch (err) {
         searchView.renderError();
     }
