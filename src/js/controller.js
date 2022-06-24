@@ -22,7 +22,7 @@ const controlCountries = async function() {
     }
 };
 
-const controlRegionCountries = async function(region) {
+const controlRegionCountries = function(region) {
     try {
         if(region === 'All') {
             countriesView.clear();
@@ -48,7 +48,7 @@ const controlRegionCountries = async function(region) {
     }
 };
 
-const controlSearchCountry = async function() {
+const controlSearchCountry = function() {
     try {
         const query = searchView.getQuery();
         if(!query) return
@@ -61,9 +61,10 @@ const controlSearchCountry = async function() {
     }
 }
 
-const controlInfoCountry = async function(name) {
+const controlInfoCountry = function(name) {
    try {
         renderInfoCountry(model.state.countries.filter(cty => cty.name === name));
+
         const neighbors = document.querySelectorAll('.country__row__border');
         neighbors.forEach(n => {
             n.addEventListener('click', e => {

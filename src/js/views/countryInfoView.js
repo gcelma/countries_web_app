@@ -10,6 +10,10 @@ class countryInfoView extends View {
         this._overlay.classList.remove('hidden');
         this._btnCloseModal.classList.remove('hidden');
         this._parentElement.classList.add('hidden');
+        if (this._body.classList.contains('body__dark')) {
+            const country = document.querySelector('.country__info');
+            country.classList.add('dark__theme'); 
+        }
     }
 
     _closeModal(modal, overlay, parentElement, closeModal) {
@@ -17,7 +21,7 @@ class countryInfoView extends View {
             modal.classList.add('hidden');
             overlay.classList.add('hidden');
             closeModal.classList.add('hidden');
-            parentElement.classList.remove('hidden');
+            parentElement.classList.remove('hidden');            
         })
     }
 
@@ -45,16 +49,8 @@ class countryInfoView extends View {
         }
     }
 
-    // renderBorders(borders) {
-    //     if (borders) {
-    //         return borders.map(b => `<a class="country__row__border">${b}</a>`).join('')
-    //     } else {
-    //         return 'none'
-    //     }
-    // }
-
     _generateMarkupInfoCountry() {
-        const borders = this._data.neighbors.map(b => `<a class="country__row__border">${b}</a>`).join('');
+        const borders = this._data.neighbors ? this._data.neighbors.map(b => `<a class="country__row__border">${b}</a>`).join('') : ' none';
         return `
         <article class="country__info">
             <img class="country__img__info" src=${this._data.flag} />

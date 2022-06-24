@@ -8,6 +8,10 @@ class regionView extends View {
         this._filterElement.addEventListener('change', (e) => {
             const region = e.target.value;
             handler(region);
+            const body = document.querySelector('body');
+            if (body.classList.contains('body__dark')) {
+                this._darkThemeCountry();
+            }
         })
     }
 };

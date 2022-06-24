@@ -16,10 +16,6 @@ const countryObject = function(cty) {
         currenci : cty.currencies,
         neighbors : cty.borders,
         countryCode : cty.cca3,
-
-        // gettingBorders() {
-        //     return this.neighbors ? this.neighbors.map(b => b).join(' ') : ' none'
-        // }
     }
 };
 

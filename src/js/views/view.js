@@ -37,19 +37,19 @@ export default class View {
       this._parentElement.insertAdjacentHTML('beforeend', markup);
     }
 
-    addHandlerCountry(handler) {
+    addHandlerCountry(handler1) {
       this._parentElement.addEventListener('click', function(e) {
         const cty = e.target.closest('.country').innerHTML;
         if(!cty) return;
 
         const newDom = document.createRange().createContextualFragment(cty);
         const countryName = newDom.querySelector('.country__name').innerHTML;
-        handler(countryName);
+        handler1(countryName);
       })
     }
 
     _darkThemeCountry() {
-      const countries = document.querySelectorAll('.country');
+      const countries = document.querySelectorAll('article');
       countries.forEach(country => country.classList.toggle('dark__theme'));
     }
 };

@@ -18,6 +18,11 @@ class searchView extends View {
         this._searchElement.addEventListener('submit', function(e) {
             e.preventDefault();
             handler();
+            const body = document.querySelector('body');
+            if (body.classList.contains('body__dark')) {
+                const country = document.querySelector('article');
+                country.classList.add('dark__theme'); 
+            }
         })
     }
 }
