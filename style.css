@@ -249,6 +249,17 @@ select:focus {
     border-top-right-radius: 0.7rem;
 }
 
+@media (max-width : 426px) {
+    .country__info {
+        width: 16rem;
+    }
+
+    .country__img__info {
+        width: 16rem;
+        height: 13rem;
+    }
+}
+
 /* -------------- ERROR-MESSAGE STYLE -------------*/
 
 .error {

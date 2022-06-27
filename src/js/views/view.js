@@ -36,6 +36,7 @@ export default class View {
       </div>`
       this.clear();
       this._parentElement.insertAdjacentHTML('beforeend', markup);
+      this._body.style.height = '100vh';
     }
 
     addHandlerCountry(handler) {

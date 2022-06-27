@@ -3,12 +3,10 @@ import View from "./view.js";
 class countryInfoView extends View {
     _modal = document.querySelector('.modal');
     _overlay = document.querySelector('.overlay');
-    _btnCloseModal = document.querySelector('.close-modal');
 
     _openModal() {
         this._modal.classList.remove('hidden');
         this._overlay.classList.remove('hidden');
-        this._btnCloseModal.classList.remove('hidden');
         this._parentElement.classList.add('hidden');
         if (this._body.classList.contains('body__dark')) {
             const country = document.querySelector('.country__info');
@@ -16,11 +14,10 @@ class countryInfoView extends View {
         }
     }
 
-    _closeModal(modal, overlay, parentElement, closeModal) {
-        this._btnCloseModal.addEventListener('click', function(e) {
+    _closeModal(modal, overlay, parentElement) {
+        this._overlay.addEventListener('click', function(e) {
             modal.classList.add('hidden');
             overlay.classList.add('hidden');
-            closeModal.classList.add('hidden');
             parentElement.classList.remove('hidden');            
         })
     }
@@ -37,7 +34,8 @@ class countryInfoView extends View {
         const markup = this._generateMarkupInfoCountry();
         this._modal.insertAdjacentHTML("beforeend", markup);
         this._openModal();
-        this._closeModal(this._modal, this._overlay, this._parentElement, this._btnCloseModal);
+        this._closeModal(this._modal, this._overlay, this._parentElement);
+        this._body.style.height = '100vh';
     }
 
     _gettingInfo(object) {
@@ -61,7 +59,7 @@ class countryInfoView extends View {
               <p class="country__row"><span>🏙</span>capital: ${this._data.capital}</p>
               <p class="country__row"><span>💰</span>currenci: ${this._gettingInfo(this._data.currenci)}</p>
               <p class="country__row"><span>🗣️</span>language: ${this._gettingInfo(this._data.language)}</p>
-              <p class="country__row"><span>👫</span>borders:${borders}</p>
+              <p class="country__row borders"><span>👫</span>borders:${borders}</p>
             </div>
         </article>`;
     }

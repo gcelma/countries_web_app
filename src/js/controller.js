@@ -69,13 +69,10 @@ const controlSearchCountry = function() {
 const controlInfoCountry = function(name) {
    try {
         renderInfoCountry(model.state.countries.filter(cty => cty.name === name));
-
-        const neighbors = document.querySelectorAll('.country__row__border');
-        neighbors.forEach(n => {
-            n.addEventListener('click', e => {
-                renderInfoCountry(model.state.countries.filter(cty => cty.countryCode === e.target.innerHTML))
-            })
-        })
+        const borders = document.querySelectorAll('.country__row__border');
+        borders.forEach(b => b.addEventListener('click', e => 
+        renderInfoCountry(model.state.countries.filter(n => 
+            n.countryCode === e.target.innerHTML))))
    } catch (err) {
         console.error(err);
    }
