@@ -35,9 +35,6 @@ class countryInfoView extends View {
         this._modal.insertAdjacentHTML("beforeend", markup);
         this._openModal();
         this._closeModal(this._modal, this._overlay, this._parentElement);
-        if(this._body.classList.contains('body__dark')) {
-            this._body.style.height = '100vh';
-        }
     }
 
     _gettingInfo(object) {
