@@ -67,22 +67,18 @@ const controlSearchCountry = function() {
 }
 
 const controlInfoCountry = function(name) {
-   try {
+    try {
         renderInfoCountry(model.state.countries.filter(cty => cty.name === name));
-        const borders = document.querySelectorAll('.country__row__border');
-        borders.forEach(b => b.addEventListener('click', e => 
-        renderInfoCountry(model.state.countries.filter(n => 
-            n.countryCode === e.target.innerHTML))))
-   } catch (err) {
+    } catch (err) {
         console.error(err);
-   }
+    }
 };
 
 const init = function() {
+    darkView.changingTheme();
     countriesView.addHandlerRender(controlCountries);
     regionView.getRegionValue(controlRegionCountries);
     searchView.addHandlerSearch(controlSearchCountry);
-    countriesView.addHandlerCountry(controlInfoCountry);
-    darkView.changingTheme();
+    countryInfoView.addHandlerCountry(controlInfoCountry);
 }
 init();
