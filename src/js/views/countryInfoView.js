@@ -12,12 +12,18 @@ class countryInfoView extends View {
             d.classList.remove('hidden')
         })
 
+        const countries = document.querySelectorAll('.country');
+        countries.forEach(cty => cty.classList.add('country__info'))
+
+        const countryImg = document.querySelectorAll('.country__img');
+        countryImg.forEach(img => img.classList.add('country__img__info'));
+
+        if (this._body.classList.contains('body__dark')) {
+            this._modal.querySelector('.country').classList.add('dark__theme')
+        }
+
         this._overlay.classList.remove('hidden');
         this._parentElement.classList.add('hidden');
-        if (this._body.classList.contains('body__dark')) {
-            const country = document.querySelector('.country__info');
-            country.classList.add('dark__theme'); 
-        }
     }
 
     _closeModal(modal, overlay, parentElement) {
@@ -31,6 +37,12 @@ class countryInfoView extends View {
             infoDetails.forEach(h => {
                 h.classList.add('hidden')
             })
+
+            const countries = document.querySelectorAll('.country');
+            countries.forEach(cty => cty.classList.remove('country__info'))
+
+            const countryImg = document.querySelectorAll('.country__img');
+            countryImg.forEach(img => img.classList.remove('country__img__info'));
         })
     }
 
