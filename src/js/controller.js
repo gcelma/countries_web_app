@@ -66,9 +66,19 @@ const controlSearchCountry = function() {
     }
 }
 
+const loadBorderListener = function(e) {
+    renderInfoCountry(model.state.countries.filter(n => 
+        n.countryCode === e.target.innerHTML))
+    const borders = document.querySelectorAll('.country__row__border');
+    borders.forEach(b => b.addEventListener('click', e => loadBorderListener(e)));
+};
+
 const controlInfoCountry = function(name) {
     try {
         renderInfoCountry(model.state.countries.filter(cty => cty.name === name));
+        const borders = document.querySelectorAll('.country__row__border');
+        borders.forEach(b => b.addEventListener('click', e => 
+        loadBorderListener(e)));
     } catch (err) {
         console.error(err);
     }
